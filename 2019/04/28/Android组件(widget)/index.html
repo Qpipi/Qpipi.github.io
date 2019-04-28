@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | GYC&amp;ZR</title>
+  <title>GYC&amp;ZR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Android组件(widget)=介绍-  组件是用户界面的构造模块，组件可以显示文字或图像，与用户交互，甚至布置屏幕上的其他组件。例如：按钮，文本输入控件和选择框，都是组件。 Android SDK内置了许多组件，通过组件可以获得所需的用户界面及行为，每一个组件都是View类或它的子类，例如：View的子类ViewGroup是个包含并配置其他组件的特殊组件。  组件的属性-  也就是控制组件的">
+<meta property="og:type" content="article">
 <meta property="og:title" content="GYC&amp;ZR">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/04/28/Android组件(widget)/index.html">
 <meta property="og:site_name" content="GYC&amp;ZR">
+<meta property="og:description" content="Android组件(widget)=介绍-  组件是用户界面的构造模块，组件可以显示文字或图像，与用户交互，甚至布置屏幕上的其他组件。例如：按钮，文本输入控件和选择框，都是组件。 Android SDK内置了许多组件，通过组件可以获得所需的用户界面及行为，每一个组件都是View类或它的子类，例如：View的子类ViewGroup是个包含并配置其他组件的特殊组件。  组件的属性-  也就是控制组件的">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-28T15:30:52.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GYC&amp;ZR">
+<meta name="twitter:description" content="Android组件(widget)=介绍-  组件是用户界面的构造模块，组件可以显示文字或图像，与用户交互，甚至布置屏幕上的其他组件。例如：按钮，文本输入控件和选择框，都是组件。 Android SDK内置了许多组件，通过组件可以获得所需的用户界面及行为，每一个组件都是View类或它的子类，例如：View的子类ViewGroup是个包含并配置其他组件的特殊组件。  组件的属性-  也就是控制组件的">
   
     <link rel="alternative" href="/atom.xml" title="GYC&amp;ZR" type="application/atom+xml">
   
@@ -138,108 +142,169 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Android组件(widget)" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Android组件(widget)<br>=<br>介绍<br>-</p>
+<ul>
+<li>组件是用户界面的构造模块，组件可以显示文字或图像，与用户交互，甚至布置屏幕上的其他组件。例如：按钮，文本输入控件和选择框，都是组件。</li>
+<li>Android SDK内置了许多组件，通过组件可以获得所需的用户界面及行为，每一个组件都是View类或它的子类，例如：View的子类ViewGroup是个包含并配置其他组件的特殊组件。</li>
+</ul>
+<p>组件的属性<br>-</p>
+<ul>
+<li>也就是控制组件的位置，摆放方式，访问方式</li>
+</ul>
+<p>组件的显示<br>-</p>
+<ul>
+<li>组件的显示依赖于Activity,Activity就负责显示布局文件中的内容，当Activity的子类被实例化后，就会自动调用onCreate(Bundle)方法,Activity要管理自己的用户界面，可以调用<code>public void setContentView(int layoutResID)</code>方法，通过资源id便可将布局视图放置在屏幕上，布局文件中的组件也随之以各自的属性定义完成实例化</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        Log.d(TAG,<span class="string">"onCreate() called"</span>);</span><br><span class="line">        setContentView(R.layout.activity_quiz);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>资源与资源ID<br>-</p>
+<ul>
+<li>布局是一种资源，资源就是要引用的非代码形式的内容，比如：图像文件，音频文件，XML文件等。</li>
+<li><p>要在Java代码中获得相应的资源就要通过资源ID获取，比如：获取某个组件的实例化对象时，要通过其资源ID获取，资源ID则保存在Android项目的R.java文件中，相应的ID自动生成，不要随意修改。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mQuestionTextView=(TextView)findViewById(R.id.question_text_view);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Android会自动为布局文件中的字符串资源等生成资源ID，组件的资源ID需要自己添加，因为不是所有组件都需要资源ID</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">andriod:id</span>=<span class="string">"@+id/true_button"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">andriod:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">andriod:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">andriod:text</span>=<span class="string">"@string/true_button"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/28/Android组件(widget)/" class="archive-article-date">
-  	<time datetime="2019-04-28T15:34:48.456Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/28/Android组件(widget)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/27/start/" class="archive-article-date">
-  	<time datetime="2019-04-27T12:05:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/27/start/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">start</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/27/start/">start</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/27/hello-world/" class="archive-article-date">
-  	<time datetime="2019-04-27T11:57:49.997Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/27/hello-world/">Hello World</a>
-    </h1>
+  <div id="SOHUCS" sid="Android组件(widget)"></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+
   
 
-        <div class="article-info info-on-right">
-          
-          
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'true'; // required: replace example with your forum shortname
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
-    
+  
 
 
           </div>
@@ -262,8 +327,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -140,6 +140,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Android组件(widget)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Android组件(widget)<br>=<br>介绍<br>-</p>
+<ul>
+<li>组件是用户界面的构造模块，组件可以显示文字或图像，与用户交互，甚至布置屏幕上的其他组件。例如：按钮，文本输入控件和选择框，都是组件。</li>
+<li>Android SDK内置了许多组件，通过组件可以获得所需的用户界面及行为，每一个组件都是View类或它的子类，例如：View的子类ViewGroup是个包含并配置其他组件的特殊组件。</li>
+</ul>
+<p>组件的属性<br>-</p>
+<ul>
+<li>也就是控制组件的位置，摆放方式，访问方式</li>
+</ul>
+<p>组件的显示<br>-</p>
+<ul>
+<li>组件的显示依赖于Activity,Activity就负责显示布局文件中的内容，当Activity的子类被实例化后，就会自动调用onCreate(Bundle)方法,Activity要管理自己的用户界面，可以调用<code>public void setContentView(int layoutResID)</code>方法，通过资源id便可将布局视图放置在屏幕上，布局文件中的组件也随之以各自的属性定义完成实例化</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        Log.d(TAG,<span class="string">"onCreate() called"</span>);</span><br><span class="line">        setContentView(R.layout.activity_quiz);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>资源与资源ID<br>-</p>
+<ul>
+<li>布局是一种资源，资源就是要引用的非代码形式的内容，比如：图像文件，音频文件，XML文件等。</li>
+<li><p>要在Java代码中获得相应的资源就要通过资源ID获取，比如：获取某个组件的实例化对象时，要通过其资源ID获取，资源ID则保存在Android项目的R.java文件中，相应的ID自动生成，不要随意修改。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mQuestionTextView=(TextView)findViewById(R.id.question_text_view);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Android会自动为布局文件中的字符串资源等生成资源ID，组件的资源ID需要自己添加，因为不是所有组件都需要资源ID</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">andriod:id</span>=<span class="string">"@+id/true_button"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">andriod:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">andriod:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">andriod:text</span>=<span class="string">"@string/true_button"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/28/Android组件(widget)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-start" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
